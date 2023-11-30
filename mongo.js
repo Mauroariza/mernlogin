@@ -1,5 +1,5 @@
-const mongoose=require("mongoose")
-mongoose.connect("mongodb://0.0.0.0:27017/react-login-tut")
+import { connect, Schema, model } from "mongoose";
+connect("mongodb+srv://maurobarragan:Mauro2020@cluster0.1kzlker.mongodb.net/?retryWrites=true&w=majority")
 .then(()=>{
     console.log("mongodb connected");
 })
@@ -8,7 +8,7 @@ mongoose.connect("mongodb://0.0.0.0:27017/react-login-tut")
 })
 
 
-const newSchema=new mongoose.Schema({
+const newSchema=new Schema({
     email:{
         type:String,
         required:true
@@ -19,6 +19,6 @@ const newSchema=new mongoose.Schema({
     }
 })
 
-const collection = mongoose.model("collection",newSchema)
+const collection = model("collectionMernLogin",newSchema)
 
-module.exports=collection
+export default collection;

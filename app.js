@@ -1,17 +1,15 @@
-const express = require("express")
-const collection = require("./mongo")
-const cors = require("cors")
+import express, { json, urlencoded } from "express"
+import collection from "./mongo.js"
+import cors from "cors"
+
 const app = express()
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(json())
+app.use(urlencoded({ extended: true }))
 app.use(cors())
-
-
 
 app.get("/",cors(),(req,res)=>{
 
 })
-
 
 app.post("/",async(req,res)=>{
     const{email,password}=req.body
@@ -32,8 +30,6 @@ app.post("/",async(req,res)=>{
     }
 
 })
-
-
 
 app.post("/signup",async(req,res)=>{
     const{email,password}=req.body
@@ -64,4 +60,3 @@ app.post("/signup",async(req,res)=>{
 app.listen(8000,()=>{
     console.log("port connected");
 })
-
